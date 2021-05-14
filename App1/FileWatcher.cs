@@ -29,7 +29,9 @@ namespace App1
         private void Watcher_Event(object sender, FileSystemEventArgs e)
         {
             Console.WriteLine($"file event = {e.FullPath}");
-            FileEvent(e.FullPath);
+
+            if (FileEvent != null)
+                FileEvent(e.FullPath);
         }
     }
 }
